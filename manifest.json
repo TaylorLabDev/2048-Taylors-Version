@@ -1,7 +1,7 @@
 {
     "name": "2048 Taylor's Version",
     "short_name": "2048",
-    "start_url": "/?home=true",
+    "start_url": "/2048-Taylors-Version",
     "icons": [
         {
           "src": "icons/manifest-icon-192.maskable.png",
