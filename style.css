@@ -1,0 +1,481 @@
+html{
+    height: 100%;
+    
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+
+
+p{
+    color: #625548;
+    /*font-family: "microsoft yahei";
+    font-weight: bold;*/
+    left: -10px;
+    
+}
+
+
+@font-face {
+    font-family: Pistilli Roman;
+    src: url(thirdparty/pistilli_roman/Pistilli-Roman.otf);
+}
+
+
+body{
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /*font-family: "microsoft yahei";*/
+    background-color: #edece8 ;
+    color: rgb(98, 85, 72);
+    overflow: hidden;
+
+    font-family: "Roboto Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-variation-settings: "wdth" 100, "GRAD" 0;
+}
+ .container{
+    margin:auto;
+    width: 90%;
+    height: 100%;
+    overflow:hidden;
+    position: relative;
+    
+
+    text-align: center;
+    
+}
+
+.retry {
+    border: solid rgb(98, 85, 72) 1px;
+    padding: 0.9vh;
+    font-weight: 400;
+    
+    font-size: 3vh;
+}
+
+.retry:hover {
+    background: #bab9b6;
+}
+.retry:active {
+    background: #bab9b6;
+}
+ 
+.title2048{
+    width:100%;
+    font-size: 7vh;
+    font-weight: 200;
+    text-align: center;
+
+    font-family: "Pistilli Roman", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    float: left;
+    position: relative;
+}
+.title{
+    width:100%;
+    font-size: 4vh;
+    font-weight: 200;
+    text-align: center;
+
+    font-family: "Pistilli Roman", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    float: left;
+    position: relative;
+}
+
+
+.scoreBar {
+    font-size: 50vh;
+    width: 100%;
+    display: flex;
+    
+}
+
+.reload {
+    font-family: Lucida Sans Unicode´;
+    font-size: 3vh;
+}
+.scoreBox{
+    width: 40%;
+    
+    background: #fff;
+    color: #111;
+    border: #625548 solid 1px;
+    font-size: 1.5vh;
+    
+    padding:10px;
+    position: relative;
+    margin:10px;
+ }
+ .reloadBox {
+    width: 10%;
+    
+    background: #fff;
+    color: #111;
+    border: #625548 solid 1px;
+    font-size: 1.5vh;
+    
+    padding:10px;
+    position: relative;
+    margin:10px;
+ }
+
+ #score{
+     font-size: 3vh;
+ }
+ #best{
+    font-size: 3vh;
+}
+ 
+ #addScore{
+     position: absolute;
+     bottom: 0px;
+     font-size: 3vh;
+     color:#999;
+     opacity: .8;
+     top:4px;
+     right: 0;
+ }
+#addScore.show{
+    opacity: .8;
+    transition:all .5s ease;   -ms-transition:all .5s ease; -moz-transition:all .5s ease; -o-transition:all .5s ease; -webkit-transition:all .5s ease; 
+
+}
+#addScore.hide{
+    opacity: 0;
+    transition:all .5s ease;   -ms-transition:all .5s ease; -moz-transition:all .5s ease; -o-transition:all .5s ease; -webkit-transition:all .5s ease; 
+}
+
+#stage{
+    background: #bbada0;
+    cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    position: absolute;
+    width: 40vh;
+    height: 40vh;
+
+    left: calc(50% - 20vh);
+    top:30%;
+    
+    
+    border: 1px solid #eee;
+    z-index: 1;
+
+    
+}
+
+#undo{
+    position: relative;
+    z-index: 990;
+}
+
+.cover{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    opacity: 0.1;
+    cursor: pointer;
+}
+
+.row0{
+    top:1.2vh;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease; 
+}
+.row1{
+    top:10.9vh;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease; 
+}
+.row2{
+    top:20.6vh;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease; 
+}
+.row3{
+    top:30.3vh;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease; 
+}
+
+.cell0{
+    left:1.2vh;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease; 
+}
+.cell1{
+    left:10.9vh;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease; 
+}
+.cell2{
+    left:20.6vh;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease; 
+}
+.cell3{
+    left:30.3vh;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease; 
+}
+
+.cs{
+    display: block;
+    width: 8.5vh;
+    height: 8.5vh;
+    border-radius:5%;
+    position: absolute;
+    
+    cursor: pointer;
+    background: #fff;
+    font-size: 43px;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    
+    
+}
+
+.cs.addTileStart {
+animation: addTileStart 0.5s;
+}
+
+div.addTileEnd {
+animation: none 0.7s ease-out forwards;
+}
+
+/* Animation keyframes */
+
+@keyframes addTileStart
+{
+    0% {opacity: 1;transform:scale(1)}
+    100%{opacity: 1;transform:scale(1.2)}
+}
+
+@-moz-keyframes addTileStart /* Firefox */
+{
+    0% {opacity: 1;-moz-transform:scale(1)}
+    100%{opacity: 1;-moz-transform:scale(1.2)}
+}
+@-webkit-keyframes addTileStart /* Safari or Chrome */
+{
+    50% {opacity: 1;-webkit-transform:scale(1)}
+    100%{opacity: 1;-webkit-transform:scale(1.2)}
+}
+
+
+div{
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+
+}
+
+.textBox {
+    background: rgba(98, 85, 72, 1) !important;
+    background-image: none;
+    
+    
+    
+    text-align: center;
+    display: inline-block;
+    height: 3vh;
+    width: 5vh;
+
+    position:absolute;
+    bottom: 10;
+    right: 10;
+}
+
+.num2{
+    background: #fff;
+    background-image: url("images/albums/TaylorSwift.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-size:cover;
+
+    color:#feeee1;
+    font-size: 2.5vh;
+    font-weight: bold;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease; 
+    animation: myfirst .5s;
+    -moz-animation: myfirst .5s; /* Firefox */
+    -webkit-animation: myfirst .5s; /* Safari or Chrome or opera */
+}
+
+.num4{
+    background: #fafafa;
+    background-image: url("images/albums/Fearless.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-size:cover;
+
+
+    color: #c59d4f;
+    font-size: 2.5vh;
+    font-weight: bold;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease; 
+    animation: myfirst .5s;
+    -moz-animation: myfirst .5s; /* Firefox */
+    -webkit-animation: myfirst .5s; /* Safari or Chrome */
+}
+
+.num8{
+    background: #f3f3f3;
+    background-image: url("images/albums/SpeakNow.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-size:cover;
+
+
+    color:#c15782;
+    font-size: 2.5vh;
+    font-weight: bold;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease; 
+    animation: myfirst .5s;
+}
+
+.num16{
+    background: #F5EC00;
+    background-image: url("images/albums/Red.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-size:cover;
+
+
+    color:#b21a49;
+    font-size: 2.5vh;
+    font-weight: bold;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease; 
+    animation: myfirst .5s;
+}
+
+.num32{
+    background: #fcc20e;
+    background-image: url("images/albums/1989.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-size:cover;
+
+
+    color: #e2e3da;
+    font-size: 2.5vh;
+    font-weight: bold;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease;
+    animation: myfirst .5s;
+}
+
+.num64{
+    background: #f94a3b;
+    background-image: url("images/albums/Reputation.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-size:cover;
+
+
+
+    color:#fff;
+    font-size: 2.5vh;
+    font-weight: bold;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease;
+    animation: myfirst .5s;
+}
+
+.num128{
+    background: #222;
+    background-image: url("images/albums/Lover.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-size:cover;
+
+
+    color: #feb3dc;
+    font-size: 2.5vh;
+    font-weight: bold;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease;
+    animation: myfirst .5s;
+}
+
+.num256{
+    background: #d13100;
+    background-image: url("images/albums/Folklore.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-size:cover;
+
+    color:#ffcc66;
+    font-size: 2.5vh;
+    font-weight: bold;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease;
+    animation: myfirst .5s;
+}
+
+.num512{
+    background: #fff300;
+    background-image: url("images/albums/Evermore.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-size:cover;
+
+
+    color: #fc9f68;
+    font-size: 2.5vh;
+    font-weight: bold;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease;
+    animation: myfirst .5s;
+}
+
+.num1024{
+    background: #6483b5;
+    background-image: url("images/albums/Midnights.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-size:cover;
+
+
+    color: #5e90ac;
+    font-size: 2.5vh;
+    font-weight: bold;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease;
+    animation: myfirst .5s;
+}
+
+.num2048{
+    background: #000000;
+    background-image: url("images/albums/TheTorturedPoetsDepartment.webp");
+    background-repeat: no-repeat, no-repeat;
+    background-size:cover;
+
+
+    color: #b6b0a7;
+    font-size: 2.5vh;
+    font-weight: bold;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease;
+    animation: myfirst .5s;
+}
+
+.num4096{
+    background: #ff0099;
+    color: #fff;
+    font-size: 1.5vh;
+    font-weight: bold;
+    transition:all .1s ease;   -ms-transition:all .1s ease; -moz-transition:all .1s ease; -o-transition:all .1s ease; -webkit-transition:all .1s ease;
+    animation: myfirst .5s;
+}
+
+@keyframes myfirst
+{
+    0%{opacity: 0;transform:scale(0)}
+    50% {opacity: .5;transform:scale(1.2)}
+    100%{opacity: 1;transform:scale(1)}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+    0%{opacity: 0;-moz-transform:scale(0)}
+    50% {opacity: .5;-moz-transform:scale(1.2)}
+    100%{opacity: 1;-moz-transform:scale(1)}
+}
+@-webkit-keyframes myfirst /* Safari or Chrome */
+{
+    0%{opacity: 0;-webkit-transform:scale(0)}
+    50% {opacity: .5;-webkit-transform:scale(1.2)}
+    100%{opacity: 1;-webkit-transform:scale(1)}
+}
